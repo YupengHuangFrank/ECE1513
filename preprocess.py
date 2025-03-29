@@ -14,10 +14,17 @@ def sample_by_size(data_frame, sample_size):
     total_rows = len(data_frame)
 
     sample_size = min(sample_size, total_rows)
-    print(f"Date: {date}, Sample size: {sample_size}")
+    print(f"Sample size: {sample_size}")
 
     return data_frame.sample(n=sample_size, replace=False)
 
+def bert_tokenize(text):
+    tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+    return tokenizer(
+        text,
+        padding="max_length",     # ensures all sequences are the same length
+        truncation=True,          # shortens long sequences
+    )
 
 def preprocess_internal(df,
                tokenize,  # tokenize here is a function. Example shown below
@@ -85,13 +92,8 @@ def sample_and_preprocess(start_date,
                                             remove_contractions=remove_contractions,
                                             remove_punctuation=remove_punctuation)
         yield preprocessed_df
+# %%
+df = pd.read_csv('Date-Ordered-Data/2024-05-01.csv.gz', compression='gzip')
+print(df["hashtags"])
 
 # %%
-# Example tokenizer function
-def bert_tokenize(text):
-    tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-    return tokenizer(
-        text,
-        padding="max_length",     # ensures all sequences are the same length
-        truncation=True,          # shortens long sequences
-    )
