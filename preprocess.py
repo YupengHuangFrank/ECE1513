@@ -7,17 +7,7 @@ from pathlib import Path
 from transformers import AutoTokenizer
 
 # %%
-# Sample helper
-def sample_by_size(data_frame, sample_size):
-    if (data_frame == None or len(data_frame) == 0):
-        return None
-    total_rows = len(data_frame)
-
-    sample_size = min(sample_size, total_rows)
-    print(f"Sample size: {sample_size}")
-
-    return data_frame.sample(n=sample_size, replace=False)
-
+# Preprocess the data with Example tokenizer
 def bert_tokenize(text):
     tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
     return tokenizer(
@@ -59,6 +49,16 @@ def preprocess_internal(df,
 
 # %%
 # Sample and preprocess the data
+def sample_by_size(data_frame, sample_size):
+    if (data_frame == None or len(data_frame) == 0):
+        return None
+    total_rows = len(data_frame)
+
+    sample_size = min(sample_size, total_rows)
+    print(f"Sample size: {sample_size}")
+
+    return data_frame.sample(n=sample_size, replace=False)
+
 def get_data_frames_for_date(date):
     date = date.strftime("%Y-%m-%d")
     path = Path(f'Date-Ordered-Data/{date}.csv.gz')
@@ -93,7 +93,4 @@ def sample_and_preprocess(start_date,
                                             remove_punctuation=remove_punctuation)
         yield preprocessed_df
 # %%
-df = pd.read_csv('Date-Ordered-Data/2024-05-01.csv.gz', compression='gzip')
-print(df["hashtags"])
 
-# %%
