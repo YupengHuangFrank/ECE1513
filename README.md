@@ -28,6 +28,7 @@ These are two files that contain file to date mappings
 
 ### Date-Ordered-Data
 This folder contains English tweets ordered by date
+This folder would not be in the Ziped file version as the size is about 12 GB. If you would like to inspect the file content in here, please access via the github link provided in the report
 
 ### LSTM.ipynb
 This is the implementation of the LSTM model. The path specified in the file is specific to the Drive directory in the google colab that the model is developed.
