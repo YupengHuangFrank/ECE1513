@@ -16,30 +16,30 @@ The final result of the preprocessed text is a cleaned text with steps of your c
 - attention_mask
 - token_type_ids
 
-##Files and what they do:
-###reorganize_data.py:
+## Files and what they do:
+### reorganize_data.py:
 This is a collection of functions used for reorganize the data in a easy to process format
 
-###data_distro_aggregated.csv:
+### data_distro_aggregated.csv:
 This is an examination of the distribution of English data by date
 
-###data_distro.csv/data_distro_sorted.csv
+### data_distro.csv/data_distro_sorted.csv
 These are two files that contain file to date mappings
 
-###Date-Ordered-Data
+### Date-Ordered-Data
 This folder contains English tweets ordered by date
 
-###LSTM.ipynb
+### LSTM.ipynb
 This is the implementation of the LSTM model. The path specified in the file is specific to the Drive directory in the google colab that the model is developed.
 
-###word2vec.model
+### word2vec.model
 The word2vec mapping that was generated during the tokenization and training of the LSTM model.
 
-###updated_distilbert_model (2).ipynb.ipynb
+### updated_distilbert_model (2).ipynb.ipynb
 This is the implementation of the model distilbert-base-uncased. The path specified in the file is specific to the Drive directory in the google colab where the model is developed.
 
-###BERTweet.ipynb
+### BERTweet.ipynb
 This is the implementation of the model vinai/bertweet-base. The path specified in the file is specific to the Drive directory in the google colab where the model is developed.
 
-###Twitter-Roberta.ipynb
+### Twitter-Roberta.ipynb
 This is the implementation of the model cardiffnlp/twitter-roberta-base-sentiment. The path specified in the file is specific to the Drive directory in the google colab where the model is developed.
